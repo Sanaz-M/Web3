@@ -12,15 +12,15 @@ const main = async () => {
   const waveContract = await waveContractFactory.deploy();
   await waveContract.deployed();
 
-  //waveContract.address  will basically give us the address of the deployed contract. 
+  //waveContract.address will basically give us the address of the deployed contract. 
   console.log("Contract deployed to:", waveContract.address);
   console.log("Contract deployed by:", owner.address);
 
   await waveContract.getTotalWaves();
 
   // someone is waving :)
-  const waveTxn = await waveContract.wave();
-  await waveTxn.wait();
+  const isWaving = await waveContract.wave();
+  await isWaving.wait();
 
   await waveContract.getTotalWaves();
 };
